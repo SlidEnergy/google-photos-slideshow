@@ -16,8 +16,10 @@ var TOKEN_DIR = path.join((process.env.HOME  ||
     process.env.USERPROFILE || process.env.HOMEPATH), '.credentials');
 var TOKEN_PATH = path.join(TOKEN_DIR, 'gmail-nodejs-quickstart.json');
 
+var CLIENT_SECRET_PATH = path.join(global.__dirname || __dirname, 'client_secret.json');
+
 // Load client secrets from a local file.
-fs.readFile(path.join(__dirname, 'client_secret.json'), function processClientSecrets(err, content) {
+fs.readFile(CLIENT_SECRET_PATH, function processClientSecrets(err, content) {
 	if (err) {
 		console.log('Error loading client secret file: ' + err);
 		return;
