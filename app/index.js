@@ -6,7 +6,6 @@ var googleAuth = require('google-auth-library');
 var path = require('path');
 
 const Picasa = require('picasa');
-const download = require('image-downloader');
 
 const picasa = new Picasa();
 
@@ -155,7 +154,10 @@ function showPhotos(photos) {
 	var slides = document.getElementsByClassName('slides')[0];
 	slides.innerHTML = "";
 
-	photos.forEach(photo => {
+	photos.sort(function() {
+		return .5 - Math.random();
+	})
+	.forEach(photo => {
 		showPhoto(slides, photo);
 	}, this);
 
